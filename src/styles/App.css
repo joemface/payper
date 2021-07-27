@@ -1,0 +1,112 @@
+.App {
+  text-align: center;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #007579;
+  min-height: 100vh;
+  flex-direction: row;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#book-display {
+  text-align: center;
+  padding-top: 7rem;
+  z-index: -1;
+  background-color: rgb(247, 239, 230);
+}
+
+#books-container {
+  display: inline-block;
+  
+  margin: 1rem;
+  width: 375px;
+}
+
+
+
+#book-div {
+ 
+  display: flex;
+  height: 25%;
+  
+}
+
+#book-img {
+  box-shadow: 4px 4px rgba(128, 128, 128, 0.438);
+  width: 200px;
+  height: 300px;
+  border-radius:4px;
+}
+
+.card {
+  background-color: white;
+  box-shadow: 4px 4px rgba(128, 128, 128, 0.438);
+  height: 300px;
+}
+
+.card-text,
+.card-title,
+.card-subtitle {
+  color: rgb(59, 6, 66);
+}
+
+.col-container{
+  text-align: center;
+}
+#bookForm {
+  text-align: left;
+  display: flex;
+flex-wrap: wrap;
+
+}
+
+
+#add-book{
+padding-top: 8rem;
+padding-bottom: 5rem;
+  background-color:rgb(247, 239, 230);
+ height: 100%;
+}
+
+#bookForm{
+  padding: 1rem;
+ box-shadow: 5px 5px rgba(128, 128, 128, 0.356);
+  margin: 2rem;
+background-color: white;
+border-radius: 5px;
+
+}
+#book-header{
+  text-align: center;
+}
+.col-mid-6 {
+  width: 20rem;
+  margin: auto;
+ 
+}
+
