@@ -1,5 +1,5 @@
 import { ReactElement } from 'react';
-import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Book from '../models/Book';
 import BookBio from './BookBio';
 import '../styles/App.css';
@@ -13,7 +13,7 @@ function DisplayBooks({ books }: Props): ReactElement<any, any> {
     return (
         <div id="book-display">
             <br />
-            {books.map(bk => <BookBio book={bk} key={bk.isbn} />)}
+            {books.map(bk => <Link to={{pathname: `/${bk.isbn}`, state: `${bk}`}}><BookBio book={bk} key={bk.isbn} /></Link>)}
         </div>
     )
 }

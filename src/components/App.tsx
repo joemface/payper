@@ -7,7 +7,9 @@ import '../styles/App.css';
 import Book from '../models/Book';
 import AddBook from './AddBook';
 import Navbar from './Navbar';
-import Home from './Home';
+import BookPage from './BookPage';
+import { EventType } from '@testing-library/react';
+import BookBio from './BookBio';
 
 
 type Props = {};
@@ -37,6 +39,10 @@ class App extends Component <Props, State> {
 
   }
 
+  indexer = function(event:EventType) {
+    return event.indexOf("data-index");
+  }
+
   render() {
     return ( 
         <Router>
@@ -45,7 +51,7 @@ class App extends Component <Props, State> {
             <Route exact path="/"><DisplayBooks books={this.state.books}/></Route>
             
             <Route path="/create-book"><AddBook addBook={this.addBook}/></Route>
-          
+            <Route path="/:isbn" render={()=> <BookPage books={this.state.books}/>}></Route>
           </Switch>
           </Router>
     )

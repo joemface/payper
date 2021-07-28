@@ -37,3 +37,12 @@
     color: white;
     background-color: rgb(40,167,69)
   }
+  #searchBtn:hover{
+    cursor: pointer;
+    border:none;
+    margin-left: 1rem;
+    padding-bottom: 3px;
+    border-radius: 4px;
+    color: white;
+    background-color: rgb(30, 131, 54)
+  }
