@@ -34,39 +34,34 @@
 }
 
 #book-display {
+
+  display: flex;
+ flex-wrap: wrap;
   text-align: center;
   padding-top: 7rem;
   z-index: -1;
   background-color: rgb(247, 239, 230);
 }
 
-#books-container {
-  display: inline-block;
-  
-  margin: 1rem;
-  width: 375px;
-}
 
 
-
-#book-div {
+#books-container{  
  
-  display: flex;
-  height: 25%;
-  
+  width: 18rem;
+  margin: auto;
+
 }
 
 #book-img {
   box-shadow: 4px 4px rgba(128, 128, 128, 0.438);
-  width: 200px;
-  height: 300px;
   border-radius:4px;
+  height: 26rem;
 }
 
 .card {
+  height: 40rem;
   background-color: white;
   box-shadow: 4px 4px rgba(128, 128, 128, 0.438);
-  height: 300px;
 }
 
 .card-text,
@@ -104,8 +99,10 @@ border-radius: 5px;
 #book-header{
   text-align: center;
 }
+
+
 .col-mid-6 {
-  width: 20rem;
+ 
   margin: auto;
  
 }

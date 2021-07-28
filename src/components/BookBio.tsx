@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import Book from '../models/Book'
 
 type props = {
@@ -6,13 +7,11 @@ type props = {
 
 function BookBio({ book }: props) {
     return (
-        <div id="books-container">
-            <div id="book-div">
-                
-                <img id="book-img" src={book.img}/>
+       
+            <div id="books-container" className="card">
+                <Link to={{ pathname: `/${book.isbn}`, state: `${book}` }}>
 
-                <div className="card">
-
+                    <img className="card-img-top" id="book-img" src={book.img} />
 
                     <div className="card-body">
 
@@ -27,12 +26,14 @@ function BookBio({ book }: props) {
                         <p className="card-text">
                             <span className="bold">${book.price}</span>
                         </p>
-                        
+
                         <p className="card-text">{book.isbn}</p>
                     </div>
-                </div>
+                </Link>
             </div>
-        </div>
+  
+
+
     )
 }
 

@@ -84,7 +84,7 @@ export class AddBook extends Component<Props, State> {
     render() {
         return (
 
-            <div id="add-book" className="add-book">
+            <div id="add-book" className="container-fluid">
                 <h1 id="book-header">Add A Book</h1>
 
                 <div className="col-container">
