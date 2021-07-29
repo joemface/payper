@@ -34,8 +34,9 @@
 }
 
 #book-display {
-
+  
   display: flex;
+
  flex-wrap: wrap;
   text-align: center;
   padding-top: 7rem;
@@ -46,22 +47,24 @@
 
 
 #books-container{  
- 
+
   width: 18rem;
-  margin: auto;
+  margin: auto auto 2rem auto;
 
 }
 
 #book-img {
   box-shadow: 4px 4px rgba(128, 128, 128, 0.438);
   border-radius:4px;
-  height: 26rem;
+  height: 18rem;
+  width: 14rem;
 }
 
 .card {
-  height: 40rem;
+  height: 30rem;
   background-color: white;
   box-shadow: 4px 4px rgba(128, 128, 128, 0.438);
+  
 }
 
 .card-text,

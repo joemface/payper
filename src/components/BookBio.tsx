@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom'
+import { Link, Route } from 'react-router-dom'
 import Book from '../models/Book'
+import BookPage from './BookPage';
 
 type props = {
     book: Book
@@ -9,8 +10,8 @@ function BookBio({ book }: props) {
     return (
        
             <div id="books-container" className="card">
-                <Link to={{ pathname: `/${book.isbn}`, state: `${book}` }}>
-
+                <Link  to={{ pathname: `/book/${book.isbn}`, state: `${book}` }}>
+                   
                     <img className="card-img-top" id="book-img" src={book.img} />
 
                     <div className="card-body">
@@ -37,4 +38,4 @@ function BookBio({ book }: props) {
     )
 }
 
-export default BookBio
+export default BookBio;

@@ -3,12 +3,14 @@ import '../styles/Navbar.css'
 
 const SearchBar = ()=> {
 return(
-    <form id="search-form" className="search-form" action="/" method="get">
-       
-        <input type="text" id="searchBar" placeholder="Search by title, author, or ISBN" name="search"/>
-        
-        <button type="submit" id="searchBtn">Explore!</button>
-    </form>
+
+  <form  className="form-inline">
+    <input className="form-control mr-sm-2" id="search-bar" type="search" placeholder="Search" aria-label="Search"/>
+    <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+
+    
+    
 )
 };
 

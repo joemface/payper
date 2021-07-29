@@ -1,21 +1,35 @@
-import React, {Component, ReactElement } from "react";
+import React, { Component, ReactElement, useEffect, useState } from "react";
+import { useLocation, useParams } from "react-router";
+import { withRouter } from "react-router-dom";
 
 import Book from "../models/Book";
 import BookBio from "./BookBio";
 
-type Props = { books: Book[]};
+type Props = { book: Book};
+type State = {}
+//with router higher order components
 
-function BookPage({ books }: Props): ReactElement<any, any> {
-   
-   
+function BookPage(props: Props) {
+
+    const bk = useState();
+    let params = useParams();
+    useEffect(() => {
+        {
+            fetch(`http://localhost:8080/book/${props.book.isbn}`)
+                .then(res => res.json())
+        }
+
+    }, );
     return (
-        <div>
-          <br/>
-          <br/>
-          <br/>
-               <h1>Welcome</h1>
-               
-            {/*  <BookBio book={books[0]} key={books[0]["isbn"]}/>*/}
+        <div >
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+
+            Hello
+            
         </div>
     )
 }

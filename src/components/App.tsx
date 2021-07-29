@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import {BrowserRouter as Router,
 Switch,
 Route} from 'react-router-dom';
@@ -8,8 +8,7 @@ import Book from '../models/Book';
 import AddBook from './AddBook';
 import Navbar from './Navbar';
 import BookPage from './BookPage';
-import { EventType } from '@testing-library/react';
-import BookBio from './BookBio';
+
 
 
 type Props = {};
@@ -26,7 +25,7 @@ class App extends Component <Props, State> {
 
    
   componentDidMount(){
-    fetch("http://localhost:8081/")
+    fetch("http://localhost:8080/")
     .then(res => res.json())
     .then(bks => this.setState({books: bks}));
 
@@ -39,9 +38,6 @@ class App extends Component <Props, State> {
 
   }
 
-  indexer = function(event:EventType) {
-    return event.indexOf("data-index");
-  }
 
   render() {
     return ( 
@@ -51,7 +47,7 @@ class App extends Component <Props, State> {
             <Route exact path="/"><DisplayBooks books={this.state.books}/></Route>
             
             <Route path="/create-book"><AddBook addBook={this.addBook}/></Route>
-            <Route path="/:isbn" render={()=> <BookPage books={this.state.books}/>}></Route>
+            <Route path="/book/:isbn" component={BookPage}></Route>
           </Switch>
           </Router>
     )
