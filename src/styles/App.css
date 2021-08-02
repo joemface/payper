@@ -36,35 +36,63 @@
 #book-display {
   
   display: flex;
-
+margin: auto;
  flex-wrap: wrap;
-  text-align: center;
+  background-color: #f4f1de;
   padding-top: 7rem;
   z-index: -1;
-  background-color: rgb(247, 239, 230);
+ 
+}
+
+#books-h1{
+  margin: auto;
+  padding: 3rem;
+  color: white;
+  background-color:#81b29ab6;
+}
+
+#cardBtns{
+ position: absolute;
+bottom: 0; 
+ margin-bottom: 5px;
 }
 
 
-
 #books-container{  
-
-  width: 18rem;
-  margin: auto auto 2rem auto;
+ 
+  width: 15rem;
+  margin: 0 auto 2rem auto;
 
 }
 
 #book-img {
-  box-shadow: 4px 4px rgba(128, 128, 128, 0.438);
+  margin: 0 auto;
   border-radius:4px;
-  height: 18rem;
-  width: 14rem;
+  height: 15rem;
+  width: 12rem;
 }
 
+#books-h1{
+  top: 0;
+  left: 0;
+  display: fixed;
+}
 .card {
-  height: 30rem;
-  background-color: white;
-  box-shadow: 4px 4px rgba(128, 128, 128, 0.438);
-  
+  height: auto;
+ border: none;
+ background-color: #f4f1de;
+}
+
+button{
+  background-color: #f2cc8f;
+     color: blue;
+     border: none;
+}
+button:hover{
+  background-color: #ac9165;
+     color: white;
+     cursor: pointer;
+     border: none;
 }
 
 .card-text,

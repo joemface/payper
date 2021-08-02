@@ -10,7 +10,7 @@ function BookBio({ book }: props) {
     return (
        
             <div id="books-container" className="card">
-                <Link  to={{ pathname: `/book/${book.isbn}`, state: `${book}` }}>
+                
                    
                     <img className="card-img-top" id="book-img" src={book.img} />
 
@@ -24,18 +24,26 @@ function BookBio({ book }: props) {
                             by
                             <span className="bold"> {book.author}</span>
                         </p>
-                        <p className="card-text">
+                        <p className="card-text" id="price">
                             <span className="bold">${book.price}</span>
                         </p>
-
-                        <p className="card-text">{book.isbn}</p>
+                        <div id="cardBtns">
+                            <button className="rounded-pill" style={btnMargin}>Add to cart</button>
+                            <Link  to={{ pathname: `/book/${book.isbn}`, state: `${book}` }}>
+                            <button className="rounded-pill" style={btnMargin}>Details</button>
+                            </Link>
+                        </div>
                     </div>
-                </Link>
+            
             </div>
   
 
 
     )
+}
+
+const btnMargin = {
+    marginRight: '1rem',
 }
 
 export default BookBio;

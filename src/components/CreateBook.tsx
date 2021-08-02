@@ -4,7 +4,7 @@ import { RouteComponentProps, withRouter } from 'react-router-dom';
 import '../styles/App.css';
 
 interface Props extends RouteComponentProps<any> {
-    addBook: (book: Book) => void
+    createBook: (book: Book) => void
 };
 type State = {
     title?: string,
@@ -17,7 +17,7 @@ type State = {
 }
 
 
-export class AddBook extends Component<Props, State> {
+export class CreateBook extends Component<Props, State> {
 
     state: State = {
         title: "",
@@ -32,7 +32,7 @@ export class AddBook extends Component<Props, State> {
     handleSubmit = (event: React.SyntheticEvent) => {
         event.preventDefault();
 
-        this.props.addBook(
+        this.props.createBook(
             new Book(
                 this.state.title,
                 this.state.subtitle,
@@ -126,7 +126,7 @@ export class AddBook extends Component<Props, State> {
 
                             <div id="submitBtn" className="form-group">
                            <br/>
-                                <button type="submit" className="btn btn-success">Submit</button>
+                                <button type="submit" className="btn btn-success rounded-pill">Submit</button>
                             </div>
                         </div>
 
@@ -140,4 +140,4 @@ export class AddBook extends Component<Props, State> {
     }
 }
 
-export default withRouter(AddBook);
+export default withRouter(CreateBook);

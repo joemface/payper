@@ -11,10 +11,15 @@ type State = {};
 function DisplayBooks({ books }: Props): ReactElement<any, any> {
 
     return (
+        <div>
+            
+        
         <div id="book-display">
+        <h1 id="books-h1">Recommended for you</h1>
            {books.map((bk)=>{ return <BookBio book={bk} key={bk.isbn} />})}
            
             {/*{books.map(bk => <Link to={{pathname: `/${bk.isbn}`, state: `${bk}`}}><BookBio book={bk} key={bk.isbn} /></Link>)}*/}
+        </div>
         </div>
     )
 }
