@@ -9,12 +9,13 @@ import CreateBook from './CreateBook';
 import Navbar from './Navbar';
 import BookPage from './BookPage';
 import Checkout from './Checkout';
-import ShoppingCart from './Cart';
+import ShoppingCart from './Shop';
+import EditBook from './EditBook';
 
 
 
 type Props = {};
-type State ={ books: Book[], cart: Book[]};
+type State ={ books: Book[], prods: Book[]};
 
 class App extends Component <Props, State> {
 
@@ -22,7 +23,7 @@ class App extends Component <Props, State> {
     super(props)
     this.state = {
       books: [],
-      cart: []
+      prods: []
     }
   }
 
@@ -45,17 +46,22 @@ class App extends Component <Props, State> {
   render() {
     return ( 
         <Router>
-          <Navbar/>
+          <Navbar books={this.state.books}/>
           <Switch>
-            <Route exact path="/"><DisplayBooks books={this.state.books}/></Route>
+            <Route exact path="/"><h1 id="books-h1">Recommended for you</h1><DisplayBooks /></Route>
             <Route path="/checkout"><Checkout books={this.state.books}/></Route>
-            <Route path="/shopping-cart"><ShoppingCart books={this.state.books}/></Route>
+            <Route path="/shopping-cart"><ShoppingCart prods={this.state.prods}/></Route>
             <Route path="/create-book"><CreateBook createBook={this.createBook}/></Route>
             <Route path="/book/:isbn" component={BookPage}></Route>
+            <Route path="/edit-book/:isbn" ><EditBook/></Route>
           </Switch>
-          <footer className="container">
-        <p className="float-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2021 Payper, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+          <footer className="my-5 pt-5 text-muted text-center text-small">
+        <p className="mb-1">&copy; 2021 Payper, Inc.</p>
+        <ul className="list-inline">
+          <li className="list-inline-item"><a href="#">Privacy</a></li>
+          <li className="list-inline-item"><a href="#">Terms</a></li>
+          <li className="list-inline-item"><a href="#">Support</a></li>
+        </ul>
       </footer>
           </Router>
     )

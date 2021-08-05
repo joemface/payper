@@ -1,0 +1,40 @@
+#section{
+    padding-top: 6rem;
+}
+#remove{
+    background: rgb(236, 13, 13);
+    /* background: linear-gradient(
+      90deg,
+      rgb(250, 49, 49) 11%,
+      rgb(194, 10, 10) 80%,
+      rgb(139, 8, 8) 100%
+    ); */
+    color: white;
+    border: none;
+}
+
+#remove:hover{
+    background: rgb(252, 15, 15);
+    /* background: linear-gradient(
+      90deg,
+      rgb(139, 8, 8) 100%,
+      rgb(194, 10, 10) 80%,
+      rgb(250, 49, 49) 11%
+      
+     
+    ); */
+    color: white;
+    border: none;
+}
+
+#cartBtn{
+    background: rgb(29, 19, 211);
+    /* background: linear-gradient(
+      90deg,
+      rgba(15, 10, 107, 1) 11%,
+      rgba(17, 17, 182, 1) 80%,
+      rgba(10, 91, 237, 1) 100%
+    ); */
+    color: white;
+    border: none;
+}

@@ -34,66 +34,71 @@
 }
 
 #book-display {
-  
+  font-family: "Cormorant", serif;
   display: flex;
-margin: auto;
- flex-wrap: wrap;
-  background-color: #f4f1de;
-  padding-top: 7rem;
+  margin:  auto;
+  flex-wrap: wrap;
+  background-color:rgb(247, 239, 230);
+  padding-top: 3rem;
   z-index: -1;
- 
 }
 
-#books-h1{
-  margin: auto;
-  padding: 3rem;
+#books-h1 {
+  padding-top: 8rem;
+  text-align: center;
   color: white;
-  background-color:#81b29ab6;
+  font-family: "Vollkorn", serif;
+  background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);
 }
 
-#cardBtns{
- position: absolute;
-bottom: 0; 
- margin-bottom: 5px;
+#cardBtns {
+  position: absolute;
+  bottom: 0;
+  
+  margin-bottom: 5px;
 }
 
-
-#books-container{  
- 
+#books-container {
   width: 15rem;
   margin: 0 auto 2rem auto;
-
 }
 
 #book-img {
   margin: 0 auto;
-  border-radius:4px;
+  border-radius: 4px;
   height: 15rem;
   width: 12rem;
 }
 
-#books-h1{
+#books-h1 {
   top: 0;
   left: 0;
   display: fixed;
 }
 .card {
   height: auto;
- border: none;
- background-color: #f4f1de;
+  border: none;
+  background-color: #ffffff;
+  font-family: "Cormorant", serif;
+  box-shadow: 0 0 10px #8888887e;
+  justify-content: space-between;
 }
 
-button{
-  background-color: #f2cc8f;
-     color: blue;
-     border: none;
+/* button {
+  background: rgb(15, 10, 107);
+  background: linear-gradient(
+    90deg,
+    rgba(15, 10, 107, 1) 11%,
+    rgba(17, 17, 182, 1) 80%,
+    rgba(10, 91, 237, 1) 100%
+  );
+  color: white;
+  border: none;
 }
-button:hover{
-  background-color: #ac9165;
-     color: white;
-     cursor: pointer;
-     border: none;
-}
+button:hover {
+  color: white;
+  border: none;
+} */
 
 .card-text,
 .card-title,
@@ -101,40 +106,42 @@ button:hover{
   color: rgb(59, 6, 66);
 }
 
-.col-container{
+.col-container {
   text-align: center;
 }
 #bookForm {
   text-align: left;
   display: flex;
-flex-wrap: wrap;
-
+  flex-wrap: wrap;
 }
 
-
-#add-book{
-padding-top: 8rem;
-padding-bottom: 5rem;
-  background-color:rgb(247, 239, 230);
- height: 100%;
+#add-book {
+  padding-top: 8rem;
+  padding-bottom: 5rem;
+  background-color: rgb(247, 239, 230);
+  height: 100%;
+  font-family: "Cormorant", serif;
 }
 
-#bookForm{
+#bookForm {
   padding: 1rem;
- box-shadow: 5px 5px rgba(128, 128, 128, 0.356);
+  box-shadow: 5px 5px rgba(128, 128, 128, 0.356);
   margin: 2rem;
-background-color: white;
-border-radius: 5px;
-
+  background-color: white;
+  border-radius: 5px;
 }
-#book-header{
+#book-header {
   text-align: center;
 }
 
-
 .col-mid-6 {
- 
   margin: auto;
- 
 }
 
+#bookPage {
+  font-family: "Cormorant", serif;
+}
+
+#footer {
+  background-color: darkgray;
+}

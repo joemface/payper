@@ -1,24 +1,32 @@
-import { ReactElement } from 'react';
+import { ReactElement, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Book from '../models/Book';
 import BookBio from './BookBio';
 import '../styles/App.css';
+import AppContext from '../contexts/AppContext';
+import { getBooks } from '../api/Book';
 
 
-type Props = { books: Book[]};
-type State = {};
+function DisplayBooks() {
 
-function DisplayBooks({ books }: Props): ReactElement<any, any> {
+    const {books, setBooks} = useContext(AppContext);
+
+    useEffect(()=>{
+    getBooks()
+    .then(books=>setBooks(books));
+    },[books]);
 
     return (
         <div>
-            
+            <title>Payper</title>
         
         <div id="book-display">
-        <h1 id="books-h1">Recommended for you</h1>
-           {books.map((bk)=>{ return <BookBio book={bk} key={bk.isbn} />})}
-           
-            {/*{books.map(bk => <Link to={{pathname: `/${bk.isbn}`, state: `${bk}`}}><BookBio book={bk} key={bk.isbn} /></Link>)}*/}
+        
+           { books?
+           books.map((bk)=>{ return <BookBio book={bk} key={bk.isbn} />})
+           :
+           <div>No books found!</div>
+           }
         </div>
         </div>
     )

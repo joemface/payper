@@ -1,36 +1,47 @@
-import { Link, Route } from 'react-router-dom'
+import { useState } from 'react';
+import { Link, Route, withRouter } from 'react-router-dom'
 import Book from '../models/Book'
-import BookPage from './BookPage';
 
-type props = {
-    book: Book
-}
 
-function BookBio({ book }: props) {
+
+function BookBio( props:any) {
+    const [cart, setCart] = useState<any>([]);
+
+    function addtocart(item:any) {
+        let cart2 = [...cart]
+        cart2.push({ ...item })
+        
+        setCart(cart2)
+        
+      }
+
     return (
        
             <div id="books-container" className="card">
                 
                    
-                    <img className="card-img-top" id="book-img" src={book.img} />
+                    <img className="card-img-top" id="book-img" src={props.book.img} />
 
                     <div className="card-body">
 
-                        <h4 className="card-title ">{book.title}</h4>
+                        <h4 className="card-title ">{props.book.title}</h4>
 
-                        <h5 className="card-subtitle ">{book.subtitle}</h5>
+                        <h5 className="card-subtitle ">{props.book.subtitle}</h5>
 
                         <p className="card-text">
                             by
-                            <span className="bold"> {book.author}</span>
+                            <span className="bold"> {props.book.author}</span>
                         </p>
-                        <p className="card-text" id="price">
-                            <span className="bold">${book.price}</span>
+                        <p className="card-text" id="price" style={btns}>
+                            <span className="bold">${props.book.price}</span>
                         </p>
                         <div id="cardBtns">
-                            <button className="rounded-pill" style={btnMargin}>Add to cart</button>
-                            <Link  to={{ pathname: `/book/${book.isbn}`, state: `${book}` }}>
-                            <button className="rounded-pill" style={btnMargin}>Details</button>
+                            <button onClick={()=>{ addtocart(props.book)}} className=" btn btn-primary rounded-pill" style={btnMargin}>Add to cart</button>
+                            <Link  to={{ pathname: `/book/${props.book.isbn}`, state: `${props.book}` }}>
+                            <button className="btn btn-primary rounded-pill" style={btnMargin}>Details</button>
+                            </Link>
+                            <Link  to={{ pathname: `/edit-book/${props.book.isbn}`, state: `${props.book}` }}>
+                            <button className="btn btn-primary rounded-pill" style={btnMargin}>Edit</button>
                             </Link>
                         </div>
                     </div>
@@ -44,6 +55,9 @@ function BookBio({ book }: props) {
 
 const btnMargin = {
     marginRight: '1rem',
+ 
+   
 }
 
-export default BookBio;
+const btns ={ marginBottom: '2rem'}
+export default withRouter(BookBio);

@@ -1,14 +1,16 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
+import React, {ReactElement, useState} from 'react';
 import { Cart } from 'react-bootstrap-icons';
 import logo from '../book-icon.png';
 import '../styles/Navbar.css';
-import SearchBar from './SearchBar';
+import Book from '../models/Book';
+import ShoppingCart from '../components/Cart'
 
+type Props = { books: Book[]};
+type book = {book: Book};
 
-
-
-function Navbar(props: any) {
+function Navbar({ books }: Props): ReactElement<any, any> {
+ 
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -18,23 +20,27 @@ function Navbar(props: any) {
         <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
 
           <Link className="navbar-brand" to="/">
-            <img className="brand" src={logo} alt='logo' />     Payper
+            <img id="payper" className="brand" src={logo} alt='logo' />     Payper
           </Link>
           <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
 
             <li id="nav-item active">
-              <form className="form-inline my-2 my-lg-0">
-                <input id="search-bar" className="form-control mr-sm-2 rounded-pill" type="search" placeholder="Search by title, author or ISBN" aria-label="Search" />
-                <button className="btn btn-outline-success rounded-pill my-2 my-sm-0" type="submit">Explore!</button>
-              </form></li>
+              
+               
+                <div id="book-display">
+        
+              {/* <SearchBar/> */}
+          
+        </div>
+                </li>
             <li className="nav-item">
 
-              <Link to="/shopping-cart" id="shopping-cart" className="nav-link"><Cart size={30} /></Link>
+              <Link to={{pathname: "/shopping-cart", state: `${books}`}} id="shopping-cart" className="nav-link"><Cart size={26}/></Link>
             </li>
             <li className="nav-item">
               <Link to="/create-book" className="nav-link">Upload</Link>
             </li>
-            <li className="nav-item"><Link className="nav-link" to={{ pathname: `/checkout`, state: `${props}` }}>Checkout</Link></li>
+            <li className="nav-item"><Link className="nav-link" to={{ pathname: `/checkout`, state: `${books}` }}>Checkout</Link></li>
 
           </ul>
 

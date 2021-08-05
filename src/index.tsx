@@ -1,19 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Provider} from 'react-redux';
-import {createStore} from 'redux';
-
 import App from './components/App';
-import bookActions from './reducers/bookReducers';
 import './styles/index.css';
 import reportWebVitals from './reportWebVitals';
+import BookContextProvider from './contexts/BookContextProvider';
 
 ReactDOM.render(
-  //<Provider store={createStore(bookActions.reducer)}>
-  //<React.StrictMode>
+  <React.StrictMode>
+  <BookContextProvider>
     <App />,
-  //</React.StrictMode>
-  //</Provider>,
+  </BookContextProvider>,
+  </React.StrictMode>,
   document.getElementById('root')
 );
 
