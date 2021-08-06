@@ -26,7 +26,7 @@ function EditBook(props: any) {
     }, [book, books, setBook])
 
     const submitForm = (book:Book) => {
-        putBook(book)
+        putBook(book,isbn)
             .then(props.history.push('/books'));
     }
 

@@ -18,7 +18,9 @@ function BookBio( props:any) {
     return (
        
             <div id="books-container" className="card">
-                
+                <Link  to={{ pathname: `/edit-book/${props.book.isbn}`, state: `${props.book}` }}>
+                            <button className="btn btn-primary rounded-pill" style={btnMargin}>Edit</button>
+                            </Link>
                    
                     <img className="card-img-top" id="book-img" src={props.book.img} />
 
@@ -40,9 +42,7 @@ function BookBio( props:any) {
                             <Link  to={{ pathname: `/book/${props.book.isbn}`, state: `${props.book}` }}>
                             <button className="btn btn-primary rounded-pill" style={btnMargin}>Details</button>
                             </Link>
-                            <Link  to={{ pathname: `/edit-book/${props.book.isbn}`, state: `${props.book}` }}>
-                            <button className="btn btn-primary rounded-pill" style={btnMargin}>Edit</button>
-                            </Link>
+                            
                         </div>
                     </div>
             

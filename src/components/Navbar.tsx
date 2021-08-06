@@ -5,6 +5,7 @@ import logo from '../book-icon.png';
 import '../styles/Navbar.css';
 import Book from '../models/Book';
 import ShoppingCart from '../components/Cart'
+import SearchBar from './SearchBar';
 
 function Navbar(props:any) {
  
@@ -19,16 +20,16 @@ function Navbar(props:any) {
           <Link to={{pathname:"/books", state: `${props.books}` }} className="navbar-brand" >
             <img id="payper" className="brand" src={logo} alt='logo' />     Payper
           </Link>
+           
+        
+      
+       
+
           <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
 
             <li id="nav-item active">
               
-               
-                <div id="book-display">
-        
-              {/* <SearchBar/> */}
-          
-        </div>
+            <SearchBar/> 
                 </li>
             <li className="nav-item">
 

@@ -19,9 +19,9 @@ export const postBook = (book: Book): Promise<any> => {
 
 
 
-export const putBook = (book:Book) => {
+export const putBook = (book:Book, isbn:string) => {
     return (
-        fetch(`http://localhost:8080/books/book`,
+        fetch(`http://localhost:8080/books/book/${isbn}`,
             {
                 method: 'PUT',
                 body: JSON.stringify(book),

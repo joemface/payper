@@ -15,7 +15,7 @@ return(
 
   <form  className="form-inline">
      <input id="search-bar" className="form-control mr-sm-2 rounded-pill" type="search" onChange={event => {setSearchTerm(props.target.value)}} placeholder="Search by title, author or ISBN" aria-label="Search" />
-     {props.filter((bk:any)=>{ return <BookBio book={bk} key={bk.isbn} />})}
+     {/* {props.filter((bk:any)=>{ return <BookBio book={bk} key={bk.isbn} />})} */}
     <button className="btn btn-outline-success rounded-pill" type="submit">Explore!</button>
   </form>
 
