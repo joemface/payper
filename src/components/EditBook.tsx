@@ -11,31 +11,33 @@ import { putBook } from '../api/BookAPI';
 
 function EditBook(props: any) {
 
-    const {isbn} = useParams<any>();
-    const {books} = useContext(AppContext);
-    const[book, setBook] = useState<any>();
+    const { isbn } = useParams<any>();
     
-    useEffect(()=>{
-        if(books){
-           
-            setBook(books.find(bk => bk.isbn ===isbn));
+    const { books } = useContext(AppContext);
+    const [book, setBook] = useState<any>();
+
+    useEffect(() => {
+        if (books) {
+
+            setBook(books.find(bk =>bk.isbn == isbn
+                 
+            ));
         }
     }, [book, books, setBook])
 
-    
-    const submitForm = (book:any) =>{
+    const submitForm = (book:Book) => {
         putBook(book)
-        .then(props.history.push('/books'));
+            .then(props.history.push('/books'));
     }
-    
-    return(
-        book?
-        <BookForm
-        title={`Edit ${book.title}`}
-        book={book}
-        submitForm={submitForm} />
-        : 
-        <div>No book found!</div>
+
+    return (
+        book ?
+            <BookForm
+                title={`Edit ${book.title}`}
+                book={book}
+                submitForm={submitForm} />
+            :
+            <div>No book found!</div>
     )
 
 }

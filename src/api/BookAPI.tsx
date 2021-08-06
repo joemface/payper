@@ -21,13 +21,14 @@ export const postBook = (book: Book): Promise<any> => {
 
 export const putBook = (book:Book) => {
     return (
-        fetch(`http://localhost:8080/books/book/${book.isbn}`,
+        fetch(`http://localhost:8080/books/book`,
             {
                 method: 'PUT',
+                body: JSON.stringify(book),
                 headers: {
                     'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(book)
+                }
+                
             }
         )
     );

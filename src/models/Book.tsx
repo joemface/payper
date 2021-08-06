@@ -2,6 +2,7 @@
 
 class Book {
     constructor(
+        public _id: string,
         public title?: string, 
         public subtitle?: string, 
         public author?: string, 
