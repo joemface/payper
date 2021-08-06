@@ -1,9 +1,11 @@
 import { useContext, useEffect, useState } from 'react'
-import {putBook} from '../api/Book';
+
 import { useParams, withRouter } from 'react-router-dom';
 import '../styles/App.css';
 import AppContext from '../contexts/AppContext';
 import BookForm from './BookForm';
+import Book from '../models/Book';
+import { putBook } from '../api/BookAPI';
 
 
 
@@ -11,26 +13,31 @@ function EditBook(props: any) {
 
     const {isbn} = useParams<any>();
     const {books} = useContext(AppContext);
-    const [book, setBook] = useState<any>();
-
+    const[book, setBook] = useState<any>();
+    
     useEffect(()=>{
-        books?
-        setBook(books.find(book=>book.isbn == isbn))
-        :
-        props.history.push('/');
-    }, [isbn,books,book]);
+        if(books){
+           
+            setBook(books.find(bk => bk.isbn ===isbn));
+        }
+    }, [book, books, setBook])
 
+    
     const submitForm = (book:any) =>{
         putBook(book)
-        .then(props.hisotry.push("/"));
+        .then(props.history.push('/books'));
     }
-
-    return (
+    
+    return(
         book?
-        <BookForm title={`Edit ${book.title}`} book={book} submitForm={submitForm}/>
-            : 
-            <div>No book found to edit!</div>
+        <BookForm
+        title={`Edit ${book.title}`}
+        book={book}
+        submitForm={submitForm} />
+        : 
+        <div>No book found!</div>
     )
+
 }
 
 

@@ -6,10 +6,7 @@ import '../styles/Navbar.css';
 import Book from '../models/Book';
 import ShoppingCart from '../components/Cart'
 
-type Props = { books: Book[]};
-type book = {book: Book};
-
-function Navbar({ books }: Props): ReactElement<any, any> {
+function Navbar(props:any) {
  
   return (
     <div>
@@ -19,7 +16,7 @@ function Navbar({ books }: Props): ReactElement<any, any> {
         </button>
         <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
 
-          <Link className="navbar-brand" to="/">
+          <Link to={{pathname:"/books", state: `${props.books}` }} className="navbar-brand" >
             <img id="payper" className="brand" src={logo} alt='logo' />     Payper
           </Link>
           <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -35,12 +32,12 @@ function Navbar({ books }: Props): ReactElement<any, any> {
                 </li>
             <li className="nav-item">
 
-              <Link to={{pathname: "/shopping-cart", state: `${books}`}} id="shopping-cart" className="nav-link"><Cart size={26}/></Link>
+              <Link to={{pathname: "/shopping-cart", state: `${props.books}`}} id="shopping-cart" className="nav-link"><Cart size={26}/></Link>
             </li>
             <li className="nav-item">
               <Link to="/create-book" className="nav-link">Upload</Link>
             </li>
-            <li className="nav-item"><Link className="nav-link" to={{ pathname: `/checkout`, state: `${books}` }}>Checkout</Link></li>
+            <li className="nav-item"><Link className="nav-link" to={{ pathname: `/checkout`, state: `${props.books}` }}>Checkout</Link></li>
 
           </ul>
 

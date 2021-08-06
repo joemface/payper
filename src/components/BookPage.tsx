@@ -31,7 +31,7 @@ function BookPage() {
     useEffect(() => {
         {
             
-            fetch(`http://localhost:8080/book/${isbn}`,requestOptions)
+            fetch(`http://localhost:8080/books/book/${isbn}`,requestOptions)
                 .then(async (res) => {
                    const bookFound = await res.json();
                     

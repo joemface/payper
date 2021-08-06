@@ -5,8 +5,7 @@ import Book from '../models/Book';
 import BookBio from './BookBio';
 import '../styles/App.css';
 
-type Props = { books: Book[]};
-function Checkout({ books }: Props): ReactElement<any, any>{
+function Checkout(props:any){
     
     const res =  function() {
       window.addEventListener('load', function() {

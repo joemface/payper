@@ -4,7 +4,7 @@ import Book from '../models/Book';
 import BookBio from './BookBio';
 import '../styles/App.css';
 import AppContext from '../contexts/AppContext';
-import { getBooks } from '../api/Book';
+import { getBooks } from '../api/BookAPI';
 
 
 function DisplayBooks() {
@@ -14,7 +14,7 @@ function DisplayBooks() {
     useEffect(()=>{
     getBooks()
     .then(books=>setBooks(books));
-    },[books]);
+    },[]);
 
     return (
         <div>

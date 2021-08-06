@@ -1,6 +1,6 @@
 import { withRouter } from 'react-router-dom';
 import '../styles/App.css';
-import { postBook } from '../api/Book';
+import { postBook } from '../api/BookAPI';
 import BookForm from './BookForm';
 
 
@@ -9,7 +9,7 @@ function CreateBook(props: any) {
 
     const submitForm = (book:any) =>{
         postBook(book)
-        .then(props.history.push('/'));
+        .then(props.history.push('/books'));
     }
     
     return(
