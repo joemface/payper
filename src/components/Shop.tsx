@@ -1,10 +1,10 @@
-import React,{ useState,Component } from "react";
-import Book from "../models/Book";
+import { useState} from "react";
+
 
 
 function App(props:any) {
-  const [cart, setCart] = useState<any>([])
-  const [products, setProducts] = useState<any>([
+  const [cart, setCart] = useState<any>([]);
+  const [products, setProducts] = useState<any>([props.books]);
     // {
     //     isbn: 1,
     //   name: "Product 1",
@@ -32,7 +32,7 @@ function App(props:any) {
     //   cart: false,
     //   quantity: 1,
     // }
-  ])
+
   
   function addtocart(item:any) {
     let cart2 = [...cart]
@@ -89,13 +89,13 @@ function App(props:any) {
   return (
     <div className='container mt-2' style={{paddingTop:'10rem'}}>
       <div className='row justify-content-center'>
-        {props.books.map((item:any) => (
+        {products && products.map((item:any) => (
           <div className='col-3' key={item.isbn}>
             <div className="card"  >
-              <img src={item.url} className="card-img-top" />
+              <img src={item.img} className="card-img-top" />
               <div className="card-body">
                 <h6 className="card-title">
-                  {item.name} - $ {item.price}
+                  {item.title} - $ {item.price}
                 </h6>
                 {
                   item.cart == false

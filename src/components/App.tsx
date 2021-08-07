@@ -13,6 +13,7 @@ import BookPage from './BookPage';
 import Checkout from './Checkout';
 import ShoppingCart from './Shop';
 import EditBook from './EditBook';
+import ScrollToTop from './ScrollToTop';
 
 
 
@@ -24,6 +25,7 @@ function App() {
     <Router>
       <Navbar />
       <Switch>
+        <ScrollToTop>
       <Route exact path="/"><h1 id="books-h1">Recommended for you</h1><DisplayBooks /></Route>
         <Route exact path="/books"><h1 id="books-h1">Recommended for you</h1><DisplayBooks /></Route>
         <Route path="/checkout"><Checkout /></Route>
@@ -31,6 +33,7 @@ function App() {
         <Route path="/create-book"><CreateBook /></Route>
         <Route path="/book/:isbn" component={BookPage}></Route>
         <Route path="/edit-book/:isbn"><EditBook/></Route>
+        </ScrollToTop>
       </Switch>
       <footer className="my-5 pt-5 text-muted text-center text-small">
         <p className="mb-1">&copy; 2021 Payper, Inc.</p>

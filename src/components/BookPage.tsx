@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import '../styles/App.css'
+import '../styles/BookPage.css'
 import Book from "../models/Book";
 
 
@@ -42,19 +42,16 @@ function BookPage() {
     }, []);
 
     return (
-        <div id="bookPage"  style={overallDiv}>
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
+        <div id="bookPage" >
+            
             <div className="row" >
                 <div className="col-sm" >
                     <h1>{bk?.title}</h1>
+                   
                     <h4>{bk?.subtitle}</h4>
                     <img className="card-img" style={imgStyle} src={bk?.img}></img>
                 </div>
-                <div className="card" style={cardStyle}>
+                <div id="theCard" className="card">
 
                     <div className="card-body" >
 
@@ -64,7 +61,14 @@ function BookPage() {
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                             <h3>${bk?.price}</h3>
-                            <p>ISBN {bk?.isbn}</p>
+                            {
+                                bk?.copies>0?
+                                <h5>Copies - {bk?.copies}</h5>
+                                :
+                                <h5>Out of stock</h5>
+                            }
+                            
+                            <p>ISBN - {bk?.isbn}</p>
                             <button onClick={()=>{ addtocart(bk)}} className=" btn btn-primary rounded-pill" >Add to cart</button>
                         
                         </div>
@@ -84,20 +88,13 @@ function BookPage() {
 
 const cardStyle = {
     
-    width: '30rem',
-    height: 'auto',    
+       
     
 }
 
 const overallDiv = {
 
-    backgroundColor: '#f4f1de',
-    paddingBottom: '1rem',
-    justifyContent: 'center',
-    margin: 'auto',
-    display: 'flex' as const,
-    flexWrap: 'wrap' as const,
-    paddingTop: '8%',
+    
     
 }
 

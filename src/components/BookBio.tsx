@@ -5,21 +5,12 @@ import Book from '../models/Book'
 
 
 function BookBio( props:any) {
-    const [cart, setCart] = useState<any>([]);
-
-    function addtocart(item:any) {
-        let cart2 = [...cart]
-        cart2.push({ ...item })
-        
-        setCart(cart2)
-        
-      }
 
     return (
        
             <div id="books-container" className="card">
                 <Link  to={{ pathname: `/edit-book/${props.book.isbn}`, state: `${props.book}` }}>
-                            <button className="btn btn-primary rounded-pill" style={btnMargin}>Edit</button>
+                            <a href="#"  style={btnMargin}>Edit</a>
                             </Link>
                    
                     <img className="card-img-top" id="book-img" src={props.book.img} />
@@ -38,7 +29,8 @@ function BookBio( props:any) {
                             <span className="bold">${props.book.price}</span>
                         </p>
                         <div id="cardBtns">
-                            <button onClick={()=>{ addtocart(props.book)}} className=" btn btn-primary rounded-pill" style={btnMargin}>Add to cart</button>
+                        {/* addtocart(props.book) */}
+                            <button onClick={()=>{ }} className=" btn btn-primary rounded-pill" style={btnMargin}>Add to cart</button>
                             <Link  to={{ pathname: `/book/${props.book.isbn}`, state: `${props.book}` }}>
                             <button className="btn btn-primary rounded-pill" style={btnMargin}>Details</button>
                             </Link>

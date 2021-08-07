@@ -1,0 +1,15 @@
+#bookPage{
+    background-color: #f4f1de;
+    padding: 5rem 2rem;
+
+    justify-content: center;
+    margin: auto;
+    display: 'flex';
+    flex-wrap: 'wrap';
+    padding-top: '8%';
+}
+
+#theCard{
+    width: 50rem;
+    height: auto;
+}
