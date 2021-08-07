@@ -7,11 +7,10 @@ import Book from "../models/Book";
 type ISBN = { isbn: string };
 //with router higher order components
 
-function BookPage() {
+function BookPage(props:any) {
 
     let [bk, setBk] = useState<any>();
-    const [cart, setCart] = useState<any>([])
-
+    
     const { isbn } = useParams<ISBN>();
 
     const requestOptions = {
@@ -19,14 +18,7 @@ function BookPage() {
         headers: { 'Content-Type': 'application/json'},   
        
     };
-
-    function addtocart(item:any) {
-        let cart2 = [...cart]
-        cart2.push({ ...item })
-        
-        setCart(cart2)
-        
-      }
+    
       
     useEffect(() => {
         {
@@ -34,7 +26,7 @@ function BookPage() {
             fetch(`http://localhost:8080/books/book/${isbn}`,requestOptions)
                 .then(async (res) => {
                    const bookFound = await res.json();
-                    
+                    bookFound.quantity =  1;
                     setBk(bookFound);
                 })
 
@@ -69,7 +61,8 @@ function BookPage() {
                             }
                             
                             <p>ISBN - {bk?.isbn}</p>
-                            <button onClick={()=>{ addtocart(bk)}} className=" btn btn-primary rounded-pill" >Add to cart</button>
+                            
+                            <button onClick={(e)=>{e.preventDefault(); return props.addItemsToCart(bk)}} className=" btn btn-primary rounded-pill" >Add to cart</button>
                         
                         </div>
 

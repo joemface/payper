@@ -8,7 +8,9 @@ class Book {
         public price?: number,
         public isbn?: string,
         public copies?: number,
-        public img?: string
+        public img?: string,
+        public cart?: false,
+        public quantity?:number
         ) {
         
     }

@@ -1,15 +1,15 @@
-import { ReactElement, useContext, useEffect } from 'react';
+import { ReactElement, useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Book from '../models/Book';
 import BookBio from './BookBio';
 import '../styles/App.css';
 import AppContext from '../contexts/AppContext';
 import { getBooks } from '../api/BookAPI';
+import ShoppingCart from './Shop';
 
-
-function DisplayBooks() {
-
+function DisplayBooks(props:any) {
     const {books, setBooks} = useContext(AppContext);
+
 
     useEffect(()=>{
     getBooks()
@@ -23,10 +23,11 @@ function DisplayBooks() {
         <div id="book-display">
         
            { books?
-           books.map((bk)=>{ return <BookBio book={bk} key={bk.isbn} />})
+           books.map((bk)=>{ return<BookBio onBookDataHandler={props.addToCart} book={bk} key={bk.isbn} /> })
            :
            <div>No books found!</div>
            }
+        
         </div>
         </div>
     )

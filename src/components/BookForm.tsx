@@ -15,6 +15,8 @@ function BookForm(props: any) {
     const [isbn, setIsbn] = useState(props.book.isbn);
     const [copies, setCopies] = useState(props.book.copies);
     const [img, setImg] = useState(props.book.img);
+    const [cart, setCart] = useState();
+    const [quantity, setQuantity] = useState(0);
     let [isValid, setIsValidForm] = useState(false);
     let [isDirty, setIsDirtyForm] = useState(false);
     useEffect(() =>{
@@ -46,7 +48,9 @@ function BookForm(props: any) {
             price,
             isbn,
             copies,
-            img
+            img,
+            cart,
+            quantity
         );
         props.submitForm(book);
     }
@@ -67,34 +71,34 @@ function BookForm(props: any) {
                     <div className="col-mid-6">
                         <div className="form-group">
                             <label htmlFor="title">Title</label>
-                            <input type="text" name="title" className="form-control" onChange={e =>setTitle(e.target.value)} />
+                            <input type="text" value={title} name="title" className="form-control" onChange={e =>setTitle(e.target.value)} />
                         </div>
                         <div className="form-group">
                             <label htmlFor="subtitle">Subtitle</label>
-                            <input type="text" name="subtitle" className="form-control" onChange={e=>setSubtitle(e.target.value)} />
+                            <input type="text" value={subtitle} name="subtitle" className="form-control" onChange={e=>setSubtitle(e.target.value)} />
                         </div>
                         <div className="form-group">
                             <label htmlFor="author">Author</label>
-                            <input type="text" name="author" className="form-control" onChange={e=>setAuthor(e.target.value)} />
+                            <input type="text" value={author} name="author" className="form-control" onChange={e=>setAuthor(e.target.value)} />
                         </div>
                         <div className="form-group">
                             <label htmlFor="price">Price</label>
-                            <input type="number" step="0.01" name="price" className="form-control" onChange={e=>setPrice(parseInt(e.target.value).toFixed(2))} />
+                            <input type="number" value={price} step="0.01" name="price" className="form-control" onChange={e=>setPrice(parseInt(e.target.value).toFixed(2))} />
                         </div>
                     </div>
 
                     <div id="col-2" className="col-mid-6">
                         <div className="form-group">
                             <label htmlFor="isbn">ISBN</label>
-                            <input type="text" name="isbn" className="form-control" onChange={e=>setIsbn(e.target.value)} />
+                            <input type="text"  value={isbn} name="isbn" className="form-control" onChange={e=>setIsbn(e.target.value)} />
                         </div>
                         <div className="form-group">
                             <label htmlFor="copies">Copies</label>
-                            <input type="number" name="copies" className="form-control" onChange={e=>setCopies(parseInt(e.target.value))} />
+                            <input type="number" value={copies} name="copies" className="form-control" onChange={e=>setCopies(parseInt(e.target.value))} />
                         </div>
                         <div className="form-group">
                             <label htmlFor="image">Image</label>
-                            <input type="text" id="img" name="img" className="form-control" onChange={e=>setImg(e.target.value)} />
+                            <input type="text" id="img" value={img} name="img" className="form-control" onChange={e=>setImg(e.target.value)} />
                         </div>
 
                         <div id="submitBtn" className="form-group">
@@ -102,7 +106,6 @@ function BookForm(props: any) {
                             <button type="submit" disabled={!isValid} className="btn btn-success rounded-pill">Submit</button>
                         </div>
                     </div>
-
 
                 </form>
 
