@@ -25,26 +25,80 @@ function App() {
     
      const addToCart=(product:any)=>{
         let cart2 = [...cart]
-        cart2.push({ ...product })
+        let isIn = false;
+        cart2.map((i:any)=>{
+          if(i?.isbn === product?.isbn){
+            i.quantity +=1;
+            isIn = true;
+        }})
+        if(!isIn){
+          cart2.push({...product});
+        }
+        
         cart.map((i:any) => {
+          
           if (i?.isbn === product?.isbn) {
-            i.cart = true
+            i.cart = true;
+            
           }
         })
-        console.log(cart2);
+        
         setCart(cart2)
+    }
+
+    function removeFromCart(item: any) {
+      let cart2 = cart.filter((i: any) => i.isbn != item.isbn)
+      cart2.map((i: any) => {
+        if (i.isbn == item.isbn) {
+          i.cart = false
+        }
+      })
+      setCart(cart2)
+  
+    }
+
+    function increase(item: any) {
+      let x = cart.map((i: any) => {
+  
+        if (item.isbn == i.isbn) {
+  
+          i.quantity += 1
+        }
+        return i
+      })
+      setCart(x)
+  
+    }
+    function decrease(item: any) {
+      let x = cart.map((i: any) => {
+  
+        if (item.isbn == i.isbn && i.quantity > 1) {
+  
+          i.quantity -= 1
+        }
+        return i
+      })
+      setCart(x)
+    }
+    function total() {
+      let cost = 0
+      cart.map((item: any) => {
+        cost += (item.price * item.quantity)
+  
+      })
+      return cost.toFixed(2);
     }
 
 
   return (
     <Router>
-      <Navbar />
+      <Navbar cart={cart}/>
       <Switch>
         <ScrollToTop>
       <Route exact path="/"><h1 id="books-h1">Recommended for you</h1><DisplayBooks addToCart={addToCart}/></Route>
         <Route exact path="/books"><h1 id="books-h1">Recommended for you</h1><DisplayBooks addToCart={addToCart}/></Route>
-        <Route path="/checkout"><Checkout /></Route>
-        <Route path="/shopping-cart"><ShoppingCart cart={cart}/></Route>
+        <Route path="/checkout" ><Checkout cart={cart} total={total}/></Route>
+        <Route path="/shopping-cart"><ShoppingCart cart={cart} remove={removeFromCart} inc={increase} dec={decrease} total={total}/></Route>
         <Route path="/create-book"><CreateBook /></Route>
         <Route path="/book/:isbn" ><BookPage addItemsToCart={addToCart}/></Route>
         <Route path="/edit-book/:isbn"><EditBook/></Route>

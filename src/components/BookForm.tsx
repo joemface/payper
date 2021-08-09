@@ -28,7 +28,7 @@ function BookForm(props: any) {
         let validCopies = copies ? true : false;
         let validImg = img ? true : false;
 
-        isValid = validTitle && validSubtitle && validAuthor && validPrice && validCopies && validIsbn && validImg;
+        isValid = validTitle && validAuthor && validPrice && validCopies && validIsbn;
         isDirty = validTitle || validSubtitle || validAuthor || validPrice || validCopies || validIsbn || validImg;
         setIsValidForm(isValid);
         setIsDirtyForm(isDirty);
@@ -75,7 +75,7 @@ function BookForm(props: any) {
                         </div>
                         <div className="form-group">
                             <label htmlFor="subtitle">Subtitle</label>
-                            <input type="text" value={subtitle} name="subtitle" className="form-control" onChange={e=>setSubtitle(e.target.value)} />
+                            <input type="text" value={subtitle} name="subtitle" className="form-control" onChange={e=>setSubtitle(e.target.value)}/>
                         </div>
                         <div className="form-group">
                             <label htmlFor="author">Author</label>

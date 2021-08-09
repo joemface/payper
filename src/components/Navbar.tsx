@@ -10,7 +10,7 @@ import SearchBar from './SearchBar';
 function Navbar(props:any) {
  
   return (
-    <div>
+   
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
@@ -33,7 +33,9 @@ function Navbar(props:any) {
                 </li>
             <li className="nav-item">
 
-              <Link to={{pathname: "/shopping-cart", state: `${props.books}`}} id="shopping-cart" className="nav-link"><Cart size={26}/></Link>
+              <Link to={{pathname: "/shopping-cart", state: `${props.books}`}} id="shopping-cart" className="nav-link">
+                <div><Cart size={26}/><span id="little-cart" className="badge badge-primary badge-pill">{props.cart.length}</span></div>
+                </Link>
             </li>
             <li className="nav-item">
               <Link to="/create-book" className="nav-link">Upload</Link>
@@ -44,7 +46,7 @@ function Navbar(props:any) {
 
         </div>
       </nav>
-    </div>
+    
 
 
     // <nav id="navbar" className="navbar navbar-expand-sm bg-dark navbar-dark justify-content-between">

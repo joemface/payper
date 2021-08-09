@@ -1,138 +1,61 @@
-import { useContext, useEffect, useState} from "react";
+import { useContext, useEffect, useState } from "react";
 import AppContext from "../contexts/AppContext";
+import '../styles/CartPage.css';
 
 
-
-function Shop(props:any) {
-  const [cart, setCart] = useState<any>([...props.cart]);
-  const [products, setProducts] = useState<any>([]);
-  const { books } = useContext(AppContext);
-  
-
-    
-    useEffect(() => {
-      if (products) {
-          
-          setProducts(products);
-      }
-  }, [cart, products])
-
-  
-  function addtocart(item:any) {
-    let cart2 = [...cart]
-    cart2.push({ ...item })
-    products.map((i:any) => {
-      if (i.isbn === item.isbn) {
-        i.cart = true
-      }
-    })
-    setCart(cart2)
-
-  }
-  function removeFromCart(item:any) {
-    let cart2 = cart.filter((i:any) => i.isbn != item.isbn)
-    products.map((i:any) => {
-      if (i.isbn == item.isbn) {
-        i.cart = false
-      }
-    })
-    setCart(cart2)
-
-  }
-  function increase(item:any) {
-    let x = cart.map((i:any) => {
-
-      if (item.isbn == i.isbn) {
-        
-        i.quantity += 1
-      }
-      return i
-    })
-    setCart(x)
-
-  }
-  function decrease(item:any) {
-    let x = cart.map((i:any) => {
-
-      if (item.isbn == i.isbn && i.quantity > 1) {
-        
-        i.quantity -= 1
-      }
-      return i
-    })
-    setCart(x)
-  }
-  function total() {
-    let cost = 0
-    cart.map((item:any) => {
-      cost += item.price * item.quantity
-
-    })
-    return cost;
-  }
+function Shop(props: any) {
+ 
   return (
-    <div className='container mt-2' style={{paddingTop:'10rem'}}>
-      
-
-      <div className='row mt-3'>
-        <table className="table  text-center">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Product</th>
-              <th scope="col">Product Name</th>
-              <th scope="col">Price</th>
-              <th scope="col">Quantity</th>
-              <th scope="col">Remove</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-               cart.map((i:any, index:number) => (
-
-                < tr key={i.isbn}>
-                  <th scope="row">{index + 1}</th>
-                  <th scope="row">
-                    <img src={i.img} style={{ width: '4rem' }} />
-                  </th>
-                  <td>{i.title}</td>
-                  <td>
+    <div id="cart-page" style={{ paddingTop: '8rem' }}>
+      <title>Shopping Cart</title>
+<div id="total"><h4>Shopping Cart</h4></div>
+      <div id="cart-items">
+        {
+          props.cart.map((i: any, index: number) => (
+            <div className="card">
+              <img className="card-img-top" src={i.img} />
+              < tr key={i.isbn}>
+                <div className="card-body">
+                  <div className="card-title">{i.title}</div>
+                  <h5>
                     ${i.price}
-                  </td>
-                  <td>
+                  </h5>
+                  <p id="inc-dec">
                     <button
-                      onClick={() => decrease(i)}
+                      onClick={() => props.dec(i)}
                       className="btn btn-primary btn-sm"
                     >
                       -
-                      </button>
-                    {i.quantity}
+                    </button>
+                    <h5>{i.quantity}</h5>
                     <button
-                      onClick={() => increase(i)}
+                      onClick={() => props.inc(i)}
 
                       className="btn btn-primary btn-sm"
-                      
+
                     >
                       +
-                      </button>
-                  </td>
+                    </button>
+                  </p>
 
-                  <td>
-                    <button onClick={() => removeFromCart(i)} className="btn btn-danger">
+                  <p>
+                    <button onClick={() => {props.remove(i); }} className="btn btn-danger">
                       Remove
-                      </button>
-                  </td >
-                </tr >
-               ))
-            }
-          </tbody>
-        </table>
+                    </button>
+                  </p>
+                </div>
+              </tr >
+            </div>
+          ))
+        }
+  
+           
+        
       </div>
-      <div className="row">
-        <div className="col text-center">
-          <h4>TOTAL: ${total()}</h4>
-        </div>
-      </div>
+     
+     
+      <div id="total"><h4>TOTAL: ${props.total()}</h4></div>
+
     </div >
   );
 }
