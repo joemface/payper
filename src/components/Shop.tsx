@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import AppContext from "../contexts/AppContext";
 import '../styles/CartPage.css';
 
@@ -54,8 +55,9 @@ function Shop(props: any) {
       </div>
      
      
-      <div id="total"><h4>TOTAL: ${props.total()}</h4></div>
-
+      <div id="total"><h4>TOTAL: ${props.total()}</h4>
+      <Link to="/checkout"><button id="btn-billing" className="btn btn-primary btn-lg" type="submit">Continue to billing</button></Link>
+      </div>
     </div >
   );
 }

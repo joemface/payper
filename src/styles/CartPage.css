@@ -11,7 +11,9 @@ h5{
 }
 
 
-
+#btn-billing{
+ text-align: center;
+}
 #remove{
   display: flex;
   justify-content: center;
