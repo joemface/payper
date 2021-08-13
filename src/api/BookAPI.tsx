@@ -3,7 +3,7 @@ import Book from '../models/Book';
 
 
 export const getBooks = (): Promise<Book[]> => {
-    return fetch('http://payper-env.eba-f4t3tdk2.us-east-1.elasticbeanstalk.com/books').then((res) =>
+    return fetch('https://cors-everywhere.herokuapp.com/http://payper-env.eba-f4t3tdk2.us-east-1.elasticbeanstalk.com/books').then((res) =>
          res.json());
 }
 
