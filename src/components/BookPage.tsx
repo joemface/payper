@@ -23,7 +23,7 @@ function BookPage(props:any) {
     useEffect(() => {
         {
             
-            fetch(`http://payper-env.eba-f4t3tdk2.us-east-1.elasticbeanstalk.com/books/book/${isbn}`,requestOptions)
+            fetch(`https://payper-env.eba-f4t3tdk2.us-east-1.elasticbeanstalk.com/books/book/${isbn}`,requestOptions)
                 .then(async (res) => {
                    const bookFound = await res.json();
                     bookFound.quantity =  1;
