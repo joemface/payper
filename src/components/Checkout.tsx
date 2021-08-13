@@ -26,7 +26,7 @@ function Checkout(props: any) {
   };
 
   return (
-    <html id="checkout-page" lang="en">
+    <div id="checkout-page" >
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -289,7 +289,7 @@ function Checkout(props: any) {
 
 
       </body>
-    </html>
+    </div>
   )
 
 }

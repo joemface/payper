@@ -14,6 +14,8 @@ import Checkout from './Checkout';
 import ShoppingCart from './Shop';
 import EditBook from './EditBook';
 import ScrollToTop from './ScrollToTop';
+import SearchBooks from './SearchBooks';
+import Login from './Login';
 
 
 
@@ -95,6 +97,7 @@ function App() {
       <Navbar cart={cart}/>
       <Switch>
         <ScrollToTop>
+          <Route path="/search"><SearchBooks/></Route>
       <Route exact path="/"><h1 id="books-h1">Recommended for you</h1><DisplayBooks addToCart={addToCart}/></Route>
         <Route exact path="/books"><h1 id="books-h1">Recommended for you</h1><DisplayBooks addToCart={addToCart}/></Route>
         <Route path="/checkout" ><Checkout cart={cart} total={total}/></Route>
@@ -102,6 +105,7 @@ function App() {
         <Route path="/create-book"><CreateBook /></Route>
         <Route path="/book/:isbn" ><BookPage addItemsToCart={addToCart}/></Route>
         <Route path="/edit-book/:isbn"><EditBook/></Route>
+        <Route path="/login"><Login/></Route>
         </ScrollToTop>
       </Switch>
       <footer className="my-5 pt-5 text-muted text-center text-small">

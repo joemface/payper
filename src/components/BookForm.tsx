@@ -15,7 +15,7 @@ function BookForm(props: any) {
     const [isbn, setIsbn] = useState(props.book.isbn);
     const [copies, setCopies] = useState(props.book.copies);
     const [img, setImg] = useState(props.book.img);
-    const [cart, setCart] = useState();
+    const [cart, setCart] = useState(false);
     const [quantity, setQuantity] = useState(0);
     let [isValid, setIsValidForm] = useState(false);
     let [isDirty, setIsDirtyForm] = useState(false);
@@ -83,7 +83,7 @@ function BookForm(props: any) {
                         </div>
                         <div className="form-group">
                             <label htmlFor="price">Price</label>
-                            <input type="number" value={price} step="0.01" name="price" className="form-control" onChange={e=>setPrice(parseInt(e.target.value).toFixed(2))} />
+                            <input type="number" value={price} step="0.01" name="price" className="form-control" onChange={e=>setPrice((e.target.value))} />
                         </div>
                     </div>
 

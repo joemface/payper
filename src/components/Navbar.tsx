@@ -40,10 +40,21 @@ function Navbar(props:any) {
             <li className="nav-item">
               <Link to="/create-book" className="nav-link">Upload</Link>
             </li>
+            
             <li className="nav-item"><Link className="nav-link" to={{ pathname: `/checkout`, state: `${props.books}` }}>Checkout</Link></li>
+            <li className="nav-item">
+              <Link to="/login" className="nav-link">Login</Link>
+            {/* <Link to='/search' className="nav-link">Search</Link> */}
+            </li>
 
+            
           </ul>
 
+
+<ul>
+
+  
+</ul>
         </div>
       </nav>
     

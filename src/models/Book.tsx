@@ -9,7 +9,7 @@ class Book {
         public isbn?: string,
         public copies?: number,
         public img?: string,
-        public cart?: false,
+        public cart?: boolean,
         public quantity?:number
         ) {
         
