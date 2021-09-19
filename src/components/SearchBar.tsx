@@ -19,7 +19,7 @@ const SearchBar = (props:any)=> {
 return(
 
   <div id="search">
-     <input id="search-bar" className="form-control mr-sm-2 rounded-pill" type="search" onChange={(e:any)=>{filterChangeHandler(e.target.value)}} placeholder="Search by title, author, or isbn" />
+     <input id="search-bar" className="form-control mr-sm-2 rounded-pill" type="search" onChange={(e:any)=>{filterChangeHandler(e.target.value)}} placeholder="Search by title, author, or ISBN" />
     <button id="searchBtn" className="btn btn-outline-success rounded-pill" type="submit">Explore!</button>
   </div>
 
