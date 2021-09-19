@@ -36,7 +36,7 @@
 #book-display {
   font-family: "Cormorant", serif;
   display: flex;
-  margin:  auto;
+  margin: auto;
   flex-wrap: wrap;
   background-color:rgb(247, 239, 230);
   padding-top: 3rem;
@@ -54,12 +54,12 @@
 #cardBtns {
   position: absolute;
   bottom: 0;
-  
-  margin-bottom: 5px;
+ 
+  margin: 0 0 5px 13%;
 }
 
 #books-container {
-  width: 15rem;
+  width: 20rem;
   margin: 0 auto 2rem auto;
 }
 
@@ -87,21 +87,6 @@
   justify-content: space-between;
 }
 
-/* button {
-  background: rgb(15, 10, 107);
-  background: linear-gradient(
-    90deg,
-    rgba(15, 10, 107, 1) 11%,
-    rgba(17, 17, 182, 1) 80%,
-    rgba(10, 91, 237, 1) 100%
-  );
-  color: white;
-  border: none;
-}
-button:hover {
-  color: white;
-  border: none;
-} */
 
 .card-text,
 .card-title,
@@ -116,6 +101,11 @@ button:hover {
   text-align: left;
   display: flex;
   flex-wrap: wrap;
+  padding: 1rem;
+  box-shadow: 5px 5px rgba(128, 128, 128, 0.356);
+  margin: 2rem;
+  background-color: white;
+  border-radius: 5px;
 }
 
 #add-book {
@@ -126,13 +116,7 @@ button:hover {
   font-family: "Cormorant", serif;
 }
 
-#bookForm {
-  padding: 1rem;
-  box-shadow: 5px 5px rgba(128, 128, 128, 0.356);
-  margin: 2rem;
-  background-color: white;
-  border-radius: 5px;
-}
+
 #book-header {
   text-align: center;
 }

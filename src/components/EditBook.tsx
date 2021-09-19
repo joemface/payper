@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from 'react'
 import { useParams, withRouter } from 'react-router-dom';
 import '../styles/App.css';
 import AppContext from '../contexts/AppContext';
-import BookForm from './BookForm';
+import BookForm from '../pages/BookForm';
 import Book from '../models/Book';
 import { putBook } from '../api/BookAPI';
 

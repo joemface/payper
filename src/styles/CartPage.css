@@ -1,4 +1,12 @@
 
+#cart-page{
+  padding-top: 8rem;
+  height:100%;
+  overflow:hidden;
+  margin:0;
+  bottom:0;
+}
+
 #inc-dec{
   display: flex;
   flex-wrap: wrap;
@@ -33,9 +41,12 @@ img{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  
 }
 
 #total{
   text-align: center;
   margin: auto;
 }
+
+

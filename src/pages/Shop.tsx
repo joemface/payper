@@ -7,9 +7,9 @@ import '../styles/CartPage.css';
 function Shop(props: any) {
  
   return (
-    <div id="cart-page" style={{ paddingTop: '8rem' }}>
+    <div id="cart-page" >
       <title>Shopping Cart</title>
-<div id="total"><h4>Shopping Cart</h4></div>
+      <div id="total"><h4>Shopping Cart</h4></div>
       <div id="cart-items">
         {
           props.cart.map((i: any, index: number) => (

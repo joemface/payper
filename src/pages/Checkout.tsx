@@ -2,7 +2,7 @@
 import { ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 import Book from '../models/Book';
-import BookBio from './BookBio';
+import BookBio from '../components/BookBio';
 import '../styles/Checkout.css';
 
 function Checkout(props: any) {

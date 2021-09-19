@@ -9,13 +9,14 @@ import '../styles/App.css';
 
 import CreateBook from './CreateBook';
 import Navbar from './Navbar';
-import BookPage from './BookPage';
-import Checkout from './Checkout';
-import ShoppingCart from './Shop';
+import BookPage from '../pages/BookPage';
+import Checkout from '../pages/Checkout';
+import ShoppingCart from '../pages/Shop';
 import EditBook from './EditBook';
 import ScrollToTop from './ScrollToTop';
 import SearchBooks from './SearchBooks';
-import Login from './Login';
+import Login from '../pages/Login';
+import Register from '../pages/Register';
 
 
 
@@ -106,6 +107,7 @@ function App() {
         <Route path="/book/:isbn" ><BookPage addItemsToCart={addToCart}/></Route>
         <Route path="/edit-book/:isbn"><EditBook/></Route>
         <Route path="/login"><Login/></Route>
+        <Route path="/register"><Register/></Route>
         </ScrollToTop>
       </Switch>
       <footer className="my-5 pt-5 text-muted text-center text-small">

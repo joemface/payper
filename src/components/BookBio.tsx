@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, Route, withRouter } from 'react-router-dom'
 import Book from '../models/Book'
-import ShoppingCart from './Shop';
+import ShoppingCart from '../pages/Shop';
 
 
 function BookBio(props: any) {

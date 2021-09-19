@@ -1,7 +1,7 @@
 import { withRouter } from 'react-router-dom';
 import '../styles/App.css';
 import { postBook } from '../api/BookAPI';
-import BookForm from './BookForm';
+import BookForm from '../pages/BookForm';
 
 
 
