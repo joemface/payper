@@ -12,7 +12,7 @@ function Login(props: any) {
 
 
                 <form action="/">
-                    <input type="text" id="login" className="fadeIn second" name="login" placeholder="login" />
+                    <input type="text" id="login" className="fadeIn second" name="login" placeholder="email" />
                     <br/>
                     <br/>
                     <input type="password" id="password" className="fadeIn third" name="login" placeholder="password" />

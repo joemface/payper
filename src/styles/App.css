@@ -145,6 +145,8 @@ button:hover {
   font-family: "Cormorant", serif;
 }
 
-#footer {
-  background-color: darkgray;
+footer {
+  background-color: rgb(247, 239, 230);
 }
+
+
