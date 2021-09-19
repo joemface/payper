@@ -38,14 +38,6 @@ function App() {
           cart2.push({...product});
         }
         
-        cart.map((i:any) => {
-          
-          if (i?.isbn === product?.isbn) {
-            i.cart = true;
-            
-          }
-        })
-        
         setCart(cart2)
     }
 
@@ -63,7 +55,7 @@ function App() {
     function increase(item: any) {
       let x = cart.map((i: any) => {
   
-        if (item.isbn == i.isbn) {
+        if (item.isbn == i.isbn && i.copies > i.quantity) {
   
           i.quantity += 1
         }
